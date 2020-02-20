@@ -8,6 +8,19 @@
         </div>
     </form>
 
+    <table class="table bg-white">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Expression</th>
+                <th scope="col">Takes Subjunctive?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{> clauses/clause-block clause}}
+        </tbody>
+    </table>
+
     <form action="/api/clause" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
         <div class="form-row align-items-center">
             <div class="col-auto">
