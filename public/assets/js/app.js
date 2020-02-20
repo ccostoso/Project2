@@ -1,10 +1,12 @@
 $(function () {
     console.log('this is working!');
+    const regex = require("./regex.js");
 
     $("#clause-search-button").on("click", function(e) {
         e.preventDefault();
 
         const clause_title = $("#clause-search-input").val().trim();
+        const regexedClauseTitle = regex(clause_title);
         console.log(clause_title);
         
         $.ajax("/" + clause_title, {
