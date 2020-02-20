@@ -1,16 +1,15 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "project2-subj-hbars",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "Project 2 - Subjunctivisor - Handlebars",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "dotenv": "^8.2.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
@@ -26,5 +25,13 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1"
+=======
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "path": "^0.12.7",
+    "sequelize": "^5.21.4"
+>>>>>>> master
   }
 }
