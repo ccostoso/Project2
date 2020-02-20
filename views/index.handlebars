@@ -1,0 +1,27 @@
+<div class="container d-flex flex-column justify-content-center">
+    <form action="/" method="get" class="input-group my-4 mx-auto col-md-8 p-0">
+        <input class="form-control" id="clause-search-input" type="text" placeholder="Search for a clause"
+            aria-placeholder="Search for a clause">
+        </input>
+        <div class="input-group-append">
+            <button id="clause-search-button" type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <form action="/api/clause" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="clause-title" placeholder="Title">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="clause-url" placeholder="URL">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="clause-requires" placeholder="Requires">
+            </div>
+            <div class="col-auto">
+                <button id="clause-submit-button" type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
