@@ -1,25 +1,24 @@
 $(function () {
     console.log('this is working!');
-    const regex = require("./regex.js");
 
     $("#clause-search-button").on("click", function(e) {
         e.preventDefault();
 
         const clause_title = $("#clause-search-input").val().trim();
-        const regexedClauseTitle = regex(clause_title);
+        const regexedClauseTitle = clause_title.replace(/ /g, "-");;
         console.log(clause_title);
         
-        $.ajax("/" + clause_title, {
+        $.ajax("/" + regexedClauseTitle, {
             type: "GET",
             data: {
-                clause_title: clause_title
+                clause_title: regexedClauseTitle
             }
         }).then(
             (data) => {
-                console.log("searched for clause_title", clause_title);
+                console.log("searched for clause_title", regexedClauseTitle);
                 console.log(data);
                 // Reload the page to get the updated list
-                location.replace("/" + clause_title);
+                location.replace("/" + cregexedClauseTitle);
                 // console.log(data);
             }
         );
