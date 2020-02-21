@@ -35,7 +35,7 @@ router.get("/:clause_title", function (req, res) {
 
   db.Clause.findOne({
     where: {
-      clause_title: req.params.clause_title
+      clause_url: req.params.clause_title
     }
   })
     .then(function (data) {

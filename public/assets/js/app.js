@@ -5,23 +5,25 @@ $(function () {
         e.preventDefault();
 
         const clause_title = $("#clause-search-input").val().trim();
-        console.log(clause_title);
+        const regexedClauseTitle = clause_title.replace(/ /g, "_").replace(/à/g, "a").replace(/é/g, "e").replace(/ê/g, "e").replace(/ç/g, "c").replace(/ù/g, "u");
+       
+        console.log(regexedClauseTitle);
         
-        $.ajax("/" + clause_title, {
+        $.ajax("/" + regexedClauseTitle, {
             type: "GET",
             data: {
-                clause_title: clause_title
+                clause_title: regexedClauseTitle
             }
         }).then(
             (data) => {
-                console.log("searched for clause_title", clause_title);
+                console.log("searched for clause_title", regexedClauseTitle);
                 console.log(data);
                 // Reload the page to get the updated list
-                location.replace("/" + clause_title);
+                location.replace("/" + regexedClauseTitle);
                 // console.log(data);
             }
         );
-    })
+    });
 
     $("#clause-submit-button").on("click", function(event) {
         event.preventDefault();

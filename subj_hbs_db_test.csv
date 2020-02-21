@@ -1,0 +1,26 @@
+id,clause_url,clause_title,clause_requires,createdAt,updatedAt
+1,accepter,accepter,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+2,accorder,accorder,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+3,a_condition,à condition que,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+4,admettre,admettre,ANI,2020-02-20 00:41:28,2020-02-20 00:41:28
+5,adorer,adorer,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+6,affirmer,affirmer,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+7,afin,afin que,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+8,aimer,aimer,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+9,aimer,aimer mieux,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+10,ainsi,ainsi que,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+11,ajouter,ajouter,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+12,alors,alors que,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+13,mesure,à mesure que,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+14,moins,à moins que,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+15,annoncer,annoncer,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+16,apprecier,apprécier,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+17,apprehender,appréhender,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+18,apprendre,apprendre,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+19,approuver,approuver,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+20,apres-que,après que,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+21,assurer,assurer,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+22,a-supposer-que,à supposer que,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+23,attendre,attendre,OUI,2020-02-20 00:41:28,2020-02-20 00:41:28
+24,au-cas-ou,au cas où,NON,2020-02-20 00:41:28,2020-02-20 00:41:28
+25,au-fur-et-a-mesure-que,au fur et à mesure que,NON,2020-02-20 00:41:28,2020-02-20 00:41:28

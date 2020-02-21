@@ -1,0 +1,1 @@
+SELECT * FROM subj_hbs_db.Clauses;
