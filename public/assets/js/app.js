@@ -5,7 +5,8 @@ $(function () {
         e.preventDefault();
 
         const clause_title = $("#clause-search-input").val().trim();
-        const regexedClauseTitle = clause_title.replace(/ /g, "_");;
+        const regexedClauseTitle = clause_title.replace(/ /g, "_").replace(/à/g, "a").replace(/é/g, "e").replace(/ê/g, "e").replace(/ç/g, "c").replace(/ù/g, "u");
+       
         console.log(regexedClauseTitle);
         
         $.ajax("/" + regexedClauseTitle, {
@@ -22,7 +23,7 @@ $(function () {
                 // console.log(data);
             }
         );
-    })
+    });
 
     $("#clause-submit-button").on("click", function(event) {
         event.preventDefault();
