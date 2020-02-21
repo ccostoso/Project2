@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "passW@rd12",
+    "password": "PASSWORD",
     "database": "subj_hbs_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
