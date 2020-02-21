@@ -5,8 +5,8 @@ $(function () {
         e.preventDefault();
 
         const clause_title = $("#clause-search-input").val().trim();
-        const regexedClauseTitle = clause_title.replace(/ /g, "-");;
-        console.log(clause_title);
+        const regexedClauseTitle = clause_title.replace(/ /g, "_");;
+        console.log(regexedClauseTitle);
         
         $.ajax("/" + regexedClauseTitle, {
             type: "GET",
@@ -18,7 +18,7 @@ $(function () {
                 console.log("searched for clause_title", regexedClauseTitle);
                 console.log(data);
                 // Reload the page to get the updated list
-                location.replace("/" + cregexedClauseTitle);
+                location.replace("/" + regexedClauseTitle);
                 // console.log(data);
             }
         );
