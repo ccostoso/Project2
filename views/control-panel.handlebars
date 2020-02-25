@@ -1,0 +1,12 @@
+<div class="container my-4">
+    <section class="card">
+        <header class="card-header">
+            <h3 class="card-title">Entries to edit</h3>
+        </header>
+        <main class="card-body">
+            {{#each clause}}
+                {{> clauses/control-panel-block }}
+            {{/each}}
+        </main>
+    </section>
+</div>

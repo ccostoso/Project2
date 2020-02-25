@@ -4,20 +4,6 @@ var router = express.Router();
 // Requiring our Todo model
 var db = require("../models");
 
-// Create all our routes and set up logic within those routes where required.
-// router.get("/", function (req, res) {
-//     db.Clause.findAll()
-//         .then(function(data) {
-//             var hbsObject = {
-//                 clauses: data
-//             }
-
-//             res.render("index", hbsObject);
-
-//             console.log(data);
-//     });
-// });
-
 router.get("/", function (req, res) {
   db.Clause.findAll()
     .then(function (data) {
@@ -25,7 +11,7 @@ router.get("/", function (req, res) {
         clause: data
       }
 
-      res.render("index");
+      res.render("index", hbsObject);
 
       console.log(data);
     });
@@ -51,44 +37,64 @@ router.get("/clause/:clause_title", function (req, res) {
     });
 });
 
-router.post("/api/clause", function (req, res) {
-  console.log("req.body", req.body);
+// router.post("/api/clause", function (req, res) {
+//   console.log("req.body", req.body);
 
-  db.Clause.create({
-    clause_url: req.body.clause_url,
-    clause_title: req.body.clause_title,
-    clause_requires: req.body.clause_requires
-  }).then(function () {
-    res.send(204).end();
+//   db.Clause.create({
+//     clause_url: req.body.clause_url,
+//     clause_title: req.body.clause_title,
+//     clause_requires: req.body.clause_requires
+//   }).then(function () {
+//     res.send(204).end();
+//   });
+// });
+
+// =====================================================
+// Control Panel Routes
+// =====================================================
+
+router.get("/api/control-panel", function(req, res) {
+  db.Clause.findAll()
+  .then(function (data) {
+    var hbsObject = {
+      clause: data
+    }
+
+    res.render("control-panel", hbsObject);
+    data.forEach(ele => {
+      // console.log(ele.dataValues);
+    })
+    // console.log(hbsObject);
   });
+}) 
+
+router.put("/api/control-panel/:id", function (req, res) {
+    console.log("req.body", req.body);
+    console.log("req.params", req.params);
+
+    db.Clause.update({
+        clause_title: req.body.clause_title,
+        clause_requires: req.body.clause_requires
+      }, {
+        where: {
+          id: req.params.id
+        }
+      }).then(function() {
+        res.send(204).end();
+      })
 });
 
-// router.put("/api/burger/:id", function (req, res) {
-//     console.log("req.body", req.body);
-//     console.log("req.params", req.params);
+router.delete("/api/control-panel/:id", function (req, res) {
+    console.log("req.params", req.params);
 
-//     db.Burger.update({
-//         devoured: req.body.devoured,
-//       }, {
-//         where: {
-//           id: req.params.id
-//         }
-//       }).then(function() {
-//         res.send(204).end();
-//       })
-// });
-
-// router.delete("/api/burger/:id", function (req, res) {
-//     console.log("req.params", req.params);
-
-//     db.Burger.destroy({
-//         where: {
-//           id: req.params.id
-//         }
-//       }).then(function() {
-//         res.send(204).end();
-//       })
-// });
+    db.Clause.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function() {
+        res.send(204).end();
+      })
+});
 
 // Export routes for server.js to use.
 
