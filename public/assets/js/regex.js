@@ -5,6 +5,18 @@ function regex(string) {
     // It will turns spaces in to dashes
     // It will turn accented characters into non-accented characters
     // It will change ' into _
+
+    for (var i = 0; i < string.length; i++) {
+        if (string[i] === "'") {
+            string[i] = "_";
+        };
+
+        if (string[i] === " ") {
+            string[i] = "_";
+        }
+    }
+
+    return string;
 }
 
 module.exports = regex;
