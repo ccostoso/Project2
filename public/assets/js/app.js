@@ -9,7 +9,7 @@ $(function () {
        
         console.log(regexedClauseTitle);
         
-        $.ajax("/" + regexedClauseTitle, {
+        $.ajax("/clause/" + regexedClauseTitle, {
             type: "GET",
             data: {
                 clause_title: regexedClauseTitle
@@ -44,5 +44,49 @@ $(function () {
                 location.reload();
             }
         );
-    })
+    });
+
+
+    $("#book_search_button").on("click", function(e){
+        e.preventDefault();
+    
+        var bookTitle = $("#book_search_input").val().trim(); 
+        var bookReplace = bookTitle.replace(/ /g, "_")
+        $.ajax("/book/" + bookReplace, {
+            type: "GET",
+            data: {
+                book_title: bookReplace
+            }
+        }).then(
+            (data) => {
+                console.log("searched for clause_title", bookReplace);
+                // console.log(data);
+                // Reload the page to get the updated list
+                location.replace("/book/" + bookReplace);
+            }
+        );
+    });
+
+
+    $("#book_submit_button").on("click", function(event) {
+        event.preventDefault();
+
+        console.log('#submit_button click event');
+
+        $.ajax("/book", {
+            type: "POST",
+            data: {
+                clause_title: $("#book_name").val().trim(),
+                clause_requires: $("#book_price").val().trim(),
+            }
+        }).then(
+            () => {
+                console.log("created new line");
+                // Reload the page to get the updated list
+                location.reload();
+            }
+        );
+    });
 })
+
+
