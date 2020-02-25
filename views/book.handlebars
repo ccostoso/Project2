@@ -1,5 +1,3 @@
-
-
 <div class="container d-flex flex-column justify-content-center">
     <form action="/book" method="get" class="input-group my-4 mx-auto col-md-8 p-0">
         <input class="form-control" id="book_search_input" type="text" placeholder="Search Book Title"
@@ -10,22 +8,6 @@
         </div>
     </form>
 
-    {{!-- <form action="/api/clause" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
-        <div class="form-row align-items-center">
-            <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="" placeholder="Title">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="" placeholder="Book Title">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="" placeholder="Price">
-            </div>
-            <div class="col-auto">
-                <button id="submit-button" type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
-        </div>
-    </form> --}}
 
      <form action="/book" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
         <div class="form-row align-items-center">
@@ -33,8 +15,15 @@
                 <input type="text" class="form-control mb-2" id="book_name" placeholder="Book Title">
             </div>
             <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="book_price" placeholder="Price">
+                <input type="text" class="form-control mb-2" id="book_url" placeholder="Book URL">
             </div>
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="img_url" placeholder="Image URL">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="book_desc" placeholder="Book Description">
+            </div>
+
             <div class="col-auto">
                 <button id="book_submit_button" type="submit" class="btn btn-primary mb-2">Submit</button>
             </div>

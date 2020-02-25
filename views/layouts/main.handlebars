@@ -7,7 +7,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     {{!-- <link rel="stylesheet" href="/assets/css/burger_style.css"> --}}
 </head>
-<body class="bg-info h-100">
+<body class="bg-info h-100" style="margin: auto; max-width: 960px;">
+<div id="main_handlebars" class="container" style="font-family: Arial, Helvetica, sans-serif; margin-top: 40px; margin-bottom: 50px;">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 style="text-align: center;">{{header}}</h1>
+    </div>
+    
+    <div class="col-md-2">
+      <ul class="nav justify-content-end">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;">Dropdown</a>  
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/about">About</a>
+              <a class="dropdown-item" href="/clause">Find Clause</a>
+              <a class="dropdown-item" href="/book">Find Grammar Books</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/team">Team Members</a>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
     {{{ body }}}
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

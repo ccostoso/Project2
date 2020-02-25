@@ -30,7 +30,7 @@ $(function () {
 
         console.log('#clause-submit-button click event');
 
-        $.ajax("/api/clause", {
+        $.ajax("/clause", {
             type: "POST",
             data: {
                 clause_url: $("#clause-url").val().trim(),
@@ -46,9 +46,10 @@ $(function () {
         );
     });
 
+//-----------------------------------------------------------------------------------------------------
 
-    $("#book_search_button").on("click", function(e){
-        e.preventDefault();
+    $("#book_search_button").on("click", function(event){
+        event.preventDefault();
     
         var bookTitle = $("#book_search_input").val().trim(); 
         var bookReplace = bookTitle.replace(/ /g, "_")
@@ -59,7 +60,7 @@ $(function () {
             }
         }).then(
             (data) => {
-                console.log("searched for clause_title", bookReplace);
+                console.log("searched for book_title", bookReplace);
                 // console.log(data);
                 // Reload the page to get the updated list
                 location.replace("/book/" + bookReplace);
@@ -76,8 +77,11 @@ $(function () {
         $.ajax("/book", {
             type: "POST",
             data: {
-                clause_title: $("#book_name").val().trim(),
-                clause_requires: $("#book_price").val().trim(),
+            //data: 이 부분이 controller.js에서 request.body에 들어가는 부분. 
+                book_name: $("#book_name").val().trim(),
+                book_url: $("#book_url").val().trim(),
+                img_url: $("#img_url").val().trim(),
+                book_desc: $("#book_desc").val().trim()
             }
         }).then(
             () => {
