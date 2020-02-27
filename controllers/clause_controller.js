@@ -11,7 +11,7 @@ router.get("/", function (req, res) {
         clause: data
       }
 
-      res.render("index", hbsObject);
+      res.render("index", {header: 'Learning Language'});
 
       console.log(data);
     });
@@ -37,8 +37,8 @@ router.get("/clause/:clause_title", function (req, res) {
     });
 });
 
-// router.post("/api/clause", function (req, res) {
-//   console.log("req.body", req.body);
+router.post("/clause", function (req, res) {
+  console.log("req.body", req.body);
 
 //   db.Clause.create({
 //     clause_url: req.body.clause_url,
@@ -84,6 +84,7 @@ router.put("/api/control-panel/:id", function (req, res) {
       })
 });
 
+
 router.delete("/api/control-panel/:id", function (req, res) {
     console.log("req.params", req.params);
 
@@ -98,18 +99,15 @@ router.delete("/api/control-panel/:id", function (req, res) {
 
 // Export routes for server.js to use.
 
-
 router.get("/book", function (req, res) {
-  res.render("book");//핸들바 불러옴
+  res.render("book", {header: 'Learning Language'});//핸들바 불러옴
 });
 
 router.get("/book/:bookTitle", function (req, res) {
-  console.log(req.params.bookTitle)//bookTitle안에는 스페이스가 언더스코어로 바꿔져있는 결과가 출력된다. 
+  console.log(req.params.bookTitle)
   db.Book.findOne({
     where: {
       book_name: req.params.bookTitle.replace(/_/g, " ")
-      //bookTitle이 url의 param이어서 app.js에서 스페이스를 언더스코어로 바꿔줬지만 
-      //실제 책 이름은 검색할때 다시 언더스코어를 스페이스로 바꿔줘야해서 반대로 리플레이스를 작성
     }
   })
     .then(function (data) {
@@ -117,13 +115,10 @@ router.get("/book/:bookTitle", function (req, res) {
 
       var bookObject = {
         find_book: data ? (data.dataValues ? data.dataValues : null) : null
-        //data와 data.dataValues가 존재하면 find_book에 data.dataValues를 넣고 아니면 null  
-        //find_book: data.dataValues 
       };
 
       res.render("book_result", bookObject);
-
-      console.log(bookObject);
+      console.log(data);
     });
 });
 
@@ -132,10 +127,24 @@ router.post("/book", function (req, res) {
 
   db.Book.create({
     book_name: req.body.book_name,
-    book_requires: req.body.price
+    url: req.body.book_url,
+    img_url: req.body.img_url,
+    book_desc: req.body.book_desc
   }).then(function () {
     res.send(204).end();
   });
 });
+
+//-------------------------------------------------------
+
+router.get("/about", function(req,res){
+  res.render("about", {header: 'Learning Language'});
+});
+
+router.get("/team", function(req,res){
+  res.render("team", {header: 'Team Members'})
+})
+
+
 
 module.exports = router;
