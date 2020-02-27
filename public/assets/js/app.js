@@ -1,6 +1,7 @@
 $(function () {
     console.log('this is working!');
 
+
     $("#clause-search-button").on("click", function(e) {
         e.preventDefault();
 
@@ -86,11 +87,28 @@ $(function () {
         }).then(
             () => {
                 console.log("created new line");
+        })
+    })
+
+    $("#clause-submit-button-put").on("click", function(event) {
+        event.preventDefault();
+
+        console.log('#clause-submit-button-put click event');
+        const putId = $("#clause-id-put").val().trim();
+
+        $.ajax("/api/clause/" + putId, {
+            type: "PUT",
+            data: {
+                id: putId,
+                clause_title: $("#clause-title-put").val().trim(),
+                clause_requires: $("#clause-requires-put").val().trim(),
+            }
+        }).then(
+            () => {
+                console.log("created new clause");
                 // Reload the page to get the updated list
                 location.reload();
             }
         );
     });
 })
-
-

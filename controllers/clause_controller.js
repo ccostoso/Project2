@@ -40,16 +40,64 @@ router.get("/clause/:clause_title", function (req, res) {
 router.post("/clause", function (req, res) {
   console.log("req.body", req.body);
 
-  db.Clause.create({
-    clause_url: req.body.clause_url,
-    clause_title: req.body.clause_title,
-    clause_requires: req.body.clause_requires
-  }).then(function () {
-    res.send(204).end();
+//   db.Clause.create({
+//     clause_url: req.body.clause_url,
+//     clause_title: req.body.clause_title,
+//     clause_requires: req.body.clause_requires
+//   }).then(function () {
+//     res.send(204).end();
+//   });
+// });
+
+// =====================================================
+// Control Panel Routes
+// =====================================================
+
+router.get("/api/control-panel", function(req, res) {
+  db.Clause.findAll()
+  .then(function (data) {
+    var hbsObject = {
+      clause: data
+    }
+
+    res.render("control-panel", hbsObject);
+    data.forEach(ele => {
+      // console.log(ele.dataValues);
+    })
+    // console.log(hbsObject);
   });
+}) 
+
+router.put("/api/control-panel/:id", function (req, res) {
+    console.log("req.body", req.body);
+    console.log("req.params", req.params);
+
+    db.Clause.update({
+        clause_title: req.body.clause_title,
+        clause_requires: req.body.clause_requires
+      }, {
+        where: {
+          id: req.params.id
+        }
+      }).then(function() {
+        res.send(204).end();
+      })
 });
 
-//----------------------------------------------------------------------------------------------
+
+router.delete("/api/control-panel/:id", function (req, res) {
+    console.log("req.params", req.params);
+
+    db.Clause.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function() {
+        res.send(204).end();
+      })
+});
+
+// Export routes for server.js to use.
 
 router.get("/book", function (req, res) {
   res.render("book", {header: 'Learning Language'});//핸들바 불러옴
