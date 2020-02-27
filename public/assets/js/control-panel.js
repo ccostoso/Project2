@@ -1,6 +1,41 @@
 $(function () {
     console.log("./control-panel.js is loaded.");
 
+    // Change entry title
+    $(".clause-display-title").click(function(e) {
+        e.preventDefault();
+
+        id = $(this).data("display-title-id");
+        console.log("id:", id);
+        
+        $(this).toggleClass("d-none");
+        $("*[data-input-group-id=" + id +"]").removeClass("d-none");
+    })
+
+    $(".edit-title-button").on("click", function(e) {
+        e.preventDefault();
+
+        // Determine id and values for entry to edit
+        const id = $(this).data("edit-title-button-id")
+        const inputVal = $($("*[data-edit-title-id="+id+"]")).val().trim();
+        console.log("id:", id);
+        console.log("inputVal:", inputVal);
+
+        // Change data value for input group to pull later
+        $($("*[data-input-group-id="+id+"]")).attr("data-edit-title-value", inputVal);
+        //
+        $("*[data-edit-title-id="+id+"]").attr("placeholder", inputVal);
+        // Hide input group
+        $($("*[data-input-group-id="+id+"]")).toggleClass("d-none");
+        // Show display group
+        $("*[data-display-title-id=" + id +"]").removeClass("d-none");
+        // Change data value for display group to pull later
+        $("*[data-display-title-id=" + id +"]").attr("data-display-title-value", inputVal);
+        // Change display text on HTML doc
+        $("*[data-display-title-id=" + id +"]").text(inputVal);
+    })
+
+    // Select if entry should be changed or deleted
     $(".delete-check").on("click", function(e) {
         e.preventDefault();
         console.log($(this).data("delete-state"));
@@ -19,6 +54,7 @@ $(function () {
         $(this).toggleClass("btn-warning btn-danger");
     })
 
+    // Dropdown Item (OUI, NON or DEP changing)
     $(".dropdown-item").on("click", function(e) {
         e.preventDefault();
 
@@ -32,6 +68,7 @@ $(function () {
         $dropdown.text(value);
     });
 
+    // Make PUT or DELETE request
     $(".confirm").on("click", function(e) {
         e.preventDefault();
         
@@ -41,7 +78,7 @@ $(function () {
         console.log("thisDeleteState:", thisDeleteState);
         const id = $(this).data("update-id");
         console.log("id:", id);
-        const clauseTitle = $("*[data-title-id='" + id + "']").text().trim();
+        const clauseTitle = $("*[data-display-title-id=" + id + "]").data("display-title-value");
         console.log("clauseTitle:", clauseTitle);
         const $dropdown = $("*[data-button-require-id='" + id + "']");
         const clauseRequires = $dropdown.data("button-answer");

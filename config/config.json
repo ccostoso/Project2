@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "0chr3SQL!",
+    "password": "PASSWORD",
     "database": "subj_hbs_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -21,6 +21,7 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "use_env_variable": "JAWSDB_URL"
   }
 }
