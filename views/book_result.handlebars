@@ -8,46 +8,13 @@
         </div>
     </form>
 
-    {{!-- <table class="table bg-white">
-        <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">Book Title</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">{{find_book.id}}</th>
-                <td>{{find_book.book_name}}</td>
-                <td>{{find_book.price}}</td>
-            </tr> --}}
-            {{!-- {{> clauses/clause-block clause}}  --}}
-            {{!-- 클로즈 블락이라는 핸들바파일/뒤에는 키이름?/ 컨트롤러에서 클로즈가 키 데이터를 밸류로 가지고 있으므로 지금은 키를 불러와서 밸류도 가져올 수 있음--}}
-        {{!-- </tbody>
-    </table> --}}
-
     <div class="card mx-auto" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src={{find_book.img_url}} alt="Card image cap">
+        {{!-- 테이블 콜럼의 이름과 매치 --}}
         <div class="card-body">
             <h5 class="card-title">{{find_book.book_name}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="amazon.com" class="btn btn-primary">Go somewhere</a>
+            <p class="card-text">{{find_book.book_desc}}</p>
+            <a href={{find_book.url}} class="btn btn-primary">Buy the book</a>
         </div>
     </div>
-
-
-    <form action="/api/book" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
-        <div class="form-row align-items-center">
-            <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="book_name" placeholder="Book Title">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="book_price" placeholder="Price">
-            </div>
-            <div class="col-auto">
-                <button id="submit_button" type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
-        </div>
-    </form>
 </div>
