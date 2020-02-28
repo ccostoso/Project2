@@ -55,7 +55,7 @@ $(function () {
     })
 
     // Dropdown Item (OUI, NON or DEP changing)
-    $(".dropdown-item").on("click", function(e) {
+    $(".clause-dropdown-item").on("click", function(e) {
         e.preventDefault();
 
         const id = $(this).data("require-id");
