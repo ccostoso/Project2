@@ -58,7 +58,8 @@ router.get("/api/control-panel", function(req, res) {
   db.Clause.findAll()
   .then(function (data) {
     var hbsObject = {
-      clause: data
+      clause: data,
+      header: "Modify Clause"
     }
 
     res.render("control-panel", hbsObject);
