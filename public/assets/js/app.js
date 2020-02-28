@@ -20,7 +20,7 @@ $(function () {
                 console.log("searched for clause_title", regexedClauseTitle);
                 console.log(data);
                 // Reload the page to get the updated list
-                location.replace("/" + regexedClauseTitle);
+                location.replace("/clause/" + regexedClauseTitle);
                 // console.log(data);
             }
         );
