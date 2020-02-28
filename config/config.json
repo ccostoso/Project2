@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "zhuvjclps06s3ghf",
-    "password": "zy2caxq3zwv15mus",
-    "database": "qpk0uxfn8cddvpqb",
-    "host": "kil9uzd3tgem3naa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "PASSWORD",
+    "database": "subj_hbs_db",
+    "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
