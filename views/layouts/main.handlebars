@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handlebars Subjunctivator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    {{!-- <link rel="stylesheet" href="/assets/css/burger_style.css"> --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {{!-- 바디부분에 제이쿼리 적용되게 하기 위해서 위치 바꿔줌. --}}
 </head>
 <body class="bg-info h-100" style="margin: auto; max-width: 960px;">
-<div id="main_handlebars" class="container" style="font-family: Arial, Helvetica, sans-serif; margin-top: 40px; margin-bottom: 50px;">
+<div id="main_title_hb" class="container" style="font-family: Arial, Helvetica, sans-serif; margin-top: 40px; margin-bottom: 50px;">
   <div class="row">
     <div class="col-md-10">
       <h1 style="text-align: center;">{{header}}</h1>
     </div>
     
-    <div class="col-md-2">
+    <div class="col-md-2" id="main_nav_hb">
       <ul class="nav justify-content-end">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;">Dropdown</a>  
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/about">About</a>
-              <a class="dropdown-item" href="/clause">Find Clause</a>
+              <a class="dropdown-item" href="/">Find Clause</a>
+              <a class="dropdown-item" href="/api/control-panel">Modify Clause</a>
               <a class="dropdown-item" href="/book">Find Grammar Books</a>
               <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/team">Team Members</a>
@@ -32,13 +34,13 @@
 </div>
 
 
-
     {{{ body }}}
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/control-panel.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>
