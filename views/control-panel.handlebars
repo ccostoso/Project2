@@ -9,22 +9,27 @@
             {{/each}}
         </main>
     </section>
+
+    <section class="card my-4">
+        <header class="card-header">
+            <h3 class="card-title">New entry</h3>
+        </header>
+        <form action="/api/clause" method="POST" class="card-body input-group my-4 mx-auto col-md-8 p-0">
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="clause-title" placeholder="Title">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="clause-url" placeholder="URL">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="clause-requires" placeholder="Requires">
+            </div>
+            <div class="col-auto">
+                <button id="clause-submit-button" type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </div>
+    </form>
+    </section>
+    
 </div>
-
-
-<form action="/clause" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
-    <div class="form-row align-items-center">
-        <div class="col-auto">
-            <input type="text" class="form-control mb-2" id="clause-title" placeholder="Title">
-        </div>
-        <div class="col-auto">
-            <input type="text" class="form-control mb-2" id="clause-url" placeholder="URL">
-        </div>
-        <div class="col-auto">
-            <input type="text" class="form-control mb-2" id="clause-requires" placeholder="Requires">
-        </div>
-        <div class="col-auto">
-            <button id="clause-submit-button" type="submit" class="btn btn-primary mb-2">Submit</button>
-        </div>
-    </div>
-</form>
