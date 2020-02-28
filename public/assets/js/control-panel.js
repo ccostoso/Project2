@@ -123,4 +123,26 @@ $(function () {
             );
         }
     })
+
+    // $("#clause-submit-button").on("click", function(event) {
+    //     event.preventDefault();
+
+    //     console.log('#clause-submit-button click event');
+
+    //     $.ajax("/api/clause", {
+    //         type: "POST",
+    //         data: {
+    //             clause_url: $("#clause-url").val().trim(),
+    //             clause_title: $("#clause-title").val().trim(),
+    //             clause_requires: $("#clause-requires").val().trim(),
+    //         }
+    //     }).then(
+    //         () => {
+    //             console.log("created new clause");
+    //             // Reload the page to get the updated list
+    //             location.reload();
+    //         }
+    //     );
+    // });
+
 })

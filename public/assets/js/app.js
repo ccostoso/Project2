@@ -31,7 +31,7 @@ $(function () {
 
         console.log('#clause-submit-button click event');
 
-        $.ajax("/clause", {
+        $.ajax("/api/clause", {
             type: "POST",
             data: {
                 clause_url: $("#clause-url").val().trim(),
