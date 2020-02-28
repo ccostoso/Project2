@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column justify-content-center">
-    {{#if isUser}}
+    {{!-- {{#if isUser}} --}}
     <form action="/" method="get" class="input-group my-4 mx-auto col-md-8 p-0">
         <input class="form-control" id="clause-search-input" type="text" placeholder="Search for a clause"
             aria-placeholder="Search for a clause">
@@ -8,16 +8,28 @@
             <button id="clause-search-button" type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
-      
-      <form autocomplete="off" action="/action_page.php">
-        <div class="autocomplete" style="width:300px;">
-            <input id="myInput" type="text" name="mySubjunctivisor" placeholder="Subjunctivisor">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="padding-bottom: 50px;">
+                <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Searching for a clause
+                </h1>
+                <p style="font-style: italic;">
+                    Search for a French clause to see if its subclause takes the subjunctive mood.
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serifs;">Searching for a book</h1>
+                <p style="font-style: italic;">
+                    Looking for a language-learning book? Check out our <a href="/book">books</a> page.
+                </p>
+            </div>
         </div>
-            <input type="submit">
-      </form>
-      {{/if}}
-   
-    {{#unless isUser}}
+    </div>
+    {{!-- {{/if}} --}}
+
+    {{!-- {{#unless isUser}}
     <form action="/clause" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
         <div class="form-row align-items-center">
             <div class="col-auto">
@@ -31,7 +43,7 @@
             </div>
             <div class="col-auto">
                 <button id="clause-submit-button" type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
+            </div>W
         </div>
     </form>
 
@@ -51,5 +63,5 @@
             </div>
         </div>
     </form>
-    {{/unless}}
+    {{/unless}} --}}
 </div>
