@@ -115,7 +115,8 @@ router.get("/book/:bookTitle", function (req, res) {
       console.log('working2');
 
       var bookObject = {
-        find_book: data ? (data.dataValues ? data.dataValues : null) : null
+        find_book: data ? (data.dataValues ? data.dataValues : null) : null,
+        header: 'Book Info'
       };
 
       res.render("book_result", bookObject);
