@@ -47,6 +47,30 @@ $(function () {
         );
     });
 
+
+    $("#clause-submit-button-put").on("click", function(event) {
+        event.preventDefault();
+
+        console.log('#clause-submit-button-put click event');
+        const putId = $("#clause-id-put").val().trim();
+
+        $.ajax("/api/clause/" + putId, {
+            type: "PUT",
+            data: {
+                id: putId,
+                clause_title: $("#clause-title-put").val().trim(),
+                clause_requires: $("#clause-requires-put").val().trim(),
+            }
+        }).then(
+            () => {
+                console.log("created new clause");
+                // Reload the page to get the updated list
+                location.reload();
+            }
+        );
+    });
+})
+
 //-----------------------------------------------------------------------------------------------------
 
     $("#book_search_button").on("click", function(event){
@@ -90,25 +114,3 @@ $(function () {
         })
     })
 
-    $("#clause-submit-button-put").on("click", function(event) {
-        event.preventDefault();
-
-        console.log('#clause-submit-button-put click event');
-        const putId = $("#clause-id-put").val().trim();
-
-        $.ajax("/api/clause/" + putId, {
-            type: "PUT",
-            data: {
-                id: putId,
-                clause_title: $("#clause-title-put").val().trim(),
-                clause_requires: $("#clause-requires-put").val().trim(),
-            }
-        }).then(
-            () => {
-                console.log("created new clause");
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
-})

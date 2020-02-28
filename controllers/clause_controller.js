@@ -37,8 +37,8 @@ router.get("/clause/:clause_title", function (req, res) {
     });
 });
 
-router.post("/clause", function (req, res) {
-  console.log("req.body", req.body);
+// router.post("/clause", function (req, res) {
+//   console.log("req.body", req.body);
 
 //   db.Clause.create({
 //     clause_url: req.body.clause_url,
@@ -143,8 +143,10 @@ router.get("/about", function(req,res){
 
 router.get("/team", function(req,res){
   res.render("team", {header: 'Team Members'})
-})
+});
 
 
 
 module.exports = router;
+
+// });
