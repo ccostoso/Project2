@@ -5,6 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+//.env파일에 NODE_ENV이라는 내용이 있으면 그 밸류를 env라는 컨스트안에 넣고 만약 없으면 디벨로프먼트 스트링을 env안에 넣으라는 뜻.  
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
