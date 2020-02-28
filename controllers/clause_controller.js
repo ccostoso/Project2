@@ -37,17 +37,18 @@ router.get("/clause/:clause_title", function (req, res) {
     });
 });
 
-router.post("/clause", function (req, res) {
+
+router.post("/api/clause", function (req, res) {
   console.log("req.body", req.body);
 
-//   db.Clause.create({
-//     clause_url: req.body.clause_url,
-//     clause_title: req.body.clause_title,
-//     clause_requires: req.body.clause_requires
-//   }).then(function () {
-//     res.send(204).end();
-//   });
-// });
+  db.Clause.create({
+    clause_url: req.body.clause_url,
+    clause_title: req.body.clause_title,
+    clause_requires: req.body.clause_requires
+  }).then(function () {
+    res.send(204).end();
+  });
+});
 
 // =====================================================
 // Control Panel Routes
