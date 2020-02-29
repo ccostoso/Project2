@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column justify-content-center">
-    {{!-- {{#if isUser}} --}}
+    {{#if isUser}}
     <form action="/book" method="get" class="input-group my-4 mx-auto col-md-8 p-0">
         <input class="form-control" id="book_search_input" type="text" placeholder="Search Book Title"
             aria-placeholder="Search for a clause">
@@ -8,10 +8,10 @@
             <button id="book_search_button" type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
-    {{!-- {{/if}} --}}
+    {{/if}}
 
 
-    {{!-- {{#unless isUser}} --}}
+    {{#unless isUser}}
      <form action="/book" method="POST" class="input-group my-4 mx-auto col-md-8 p-0">
         <div class="form-row align-items-center">
             <div class="col-auto">
@@ -32,5 +32,5 @@
             </div>
         </div>
     </form>
-    {{!-- {{/unless}} --}}
+    {{/unless}}
 </div>

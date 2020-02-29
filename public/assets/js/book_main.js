@@ -1,31 +1,31 @@
 $(function () {
 
-    $("#user_signin_button").on("click", function(e) {
+    $("#user_button").on("click", function(e) {
         e.preventDefault();
         
-        $.ajax("/login", {
+        $.ajax("/book_main", {
             type: "POST",
             data: {
                 user_type: "user"
             }
         }).then(
             (data) => {
-                location.replace("/");
+                location.replace("/book");
             }
         );
     });
 
-    $("#dev_signin_button").on("click", function(e) {
+    $("#dev_button").on("click", function(e) {
         e.preventDefault();
         
-        $.ajax("/login", {
+        $.ajax("/book_main", {
             type: "POST",
             data: {
                 user_type: "dev"
             }
         }).then(
             (data) => {
-                location.replace("/");
+                location.replace("/book");
             }
         );
     });
