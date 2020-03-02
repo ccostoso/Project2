@@ -110,7 +110,7 @@ router.get("/book", function (req, res) {
   var isUser = req.cookies["user_type"] === "user";
   //스트링으로 작성을해도 연산자를 보고 불리언으로 리턴이 된다. 
   console.log("book" + isUser);
-  res.render("book", {header: 'Search Book', isUser: isUser});//핸들바 불러옴
+  res.render("book", {header: isUser?'Search Book': 'New Book Data',isUser: isUser});//핸들바 불러옴
   //isUser앞부분 키, 뒤는 밸류로 베리어블 이름을 가지고온다. 
 });
 
@@ -118,7 +118,7 @@ router.get("/book/:bookTitle", function (req, res) {
   console.log(req.params.bookTitle)
   db.Book.findOne({
     where: {
-      book_name: req.params.bookTitle.replace(/_/g, " ")
+      book_name: req.params.bookTitle.replace(/_/g, " ").replace(/a/g, "à").replace(/e/g, "é").replace(/e/g, "ê").replace(/c/g, "ç").replace(/u/g, "ù")
     }
   })
     .then(function (data) {
@@ -170,6 +170,9 @@ router.post("/book_main", function(req, res){
   res.send(204);
 });
 
+router.get("/presentation", function(req, res){
+  res.render("presentation");
+});
 
 module.exports = router;
 
