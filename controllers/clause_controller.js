@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
         clause: data
       }
 
-      res.render("index", {header: 'Learning Language', isUser: isUser});
+      res.render("index", {header: 'Learning French'});
 
       console.log(data);
     });
@@ -110,7 +110,7 @@ router.get("/book", function (req, res) {
   var isUser = req.cookies["user_type"] === "user";
   //스트링으로 작성을해도 연산자를 보고 불리언으로 리턴이 된다. 
   console.log("book" + isUser);
-  res.render("book", {header: 'Learning Language', isUser: isUser});//핸들바 불러옴
+  res.render("book", {header: isUser?'Search Book': 'New Book Data',isUser: isUser});//핸들바 불러옴
   //isUser앞부분 키, 뒤는 밸류로 베리어블 이름을 가지고온다. 
 });
 
@@ -118,7 +118,7 @@ router.get("/book/:bookTitle", function (req, res) {
   console.log(req.params.bookTitle)
   db.Book.findOne({
     where: {
-      book_name: req.params.bookTitle.replace(/_/g, " ")
+      book_name: req.params.bookTitle.replace(/_/g, " ").replace(/a/g, "à").replace(/e/g, "é").replace(/e/g, "ê").replace(/c/g, "ç").replace(/u/g, "ù")
     }
   })
     .then(function (data) {
@@ -126,7 +126,7 @@ router.get("/book/:bookTitle", function (req, res) {
 
       var bookObject = {
         find_book: data ? (data.dataValues ? data.dataValues : null) : null,
-        header: 'Book Info'
+        header: 'Book Information'
       };
 
       res.render("book_result", bookObject);
@@ -149,28 +149,30 @@ router.post("/book", function (req, res) {
 
 //-------------------------------------------------------
 
-router.get("/about", function(req,res){
-  res.render("about", {header: 'Learning Language'});
+router.get("/book_main", function(req,res){
+  res.render("book_main", {header: 'Books Page'});
 });
 
 router.get("/team", function(req,res){
   res.render("team", {header: 'Team Members'})
 });
 
+router.get("/book_main", function(req,res){
+  res.render("book_main", {header: "Find Book"});
+})
 
-router.get("/login", function(req,res){
-  res.render("login", {header: 'Learning Language'});
-});
-
-router.post("/login", function(req, res){
+router.post("/book_main", function(req, res){
   if(req.body.user_type){
     res.cookie("user_type", req.body.user_type, { maxAge: 900000, httpOnly: true });
     //maxAge몇 초동안 이 쿠키가 살아있는지 표시
     //cookie key 이름 isUser
   }
   res.send(204);
-})
+});
 
+router.get("/presentation", function(req, res){
+  res.render("presentation");
+});
 
 module.exports = router;
 
