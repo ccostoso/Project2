@@ -77,7 +77,7 @@ $(function () {
         event.preventDefault();
     
         var bookTitle = $("#book_search_input").val().trim(); 
-        var bookReplace = bookTitle.replace(/ /g, "_")
+        var bookReplace = bookTitle.replace(/ /g, "_").replace(/à/g, "a").replace(/é/g, "e").replace(/ê/g, "e").replace(/ç/g, "c").replace(/ù/g, "u");
         $.ajax("/book/" + bookReplace, {
             type: "GET",
             data: {
